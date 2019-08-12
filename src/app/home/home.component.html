@@ -1,0 +1,21 @@
+<div class="users-container">
+  <mat-card class="example-card" *ngFor="let user of allUsers">
+    <mat-card-header>
+      <mat-card-title>{{ user.login }}</mat-card-title>
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="{{ user.avatar_url }}"
+      alt="Photo of {{ user.login }}"
+    />
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        routerLink="/users/{{ user.login }}"
+      >
+        View Profile
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

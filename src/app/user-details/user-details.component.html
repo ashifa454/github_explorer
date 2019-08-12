@@ -1,0 +1,80 @@
+<div class="user-profile">
+  <mat-card class="example-card">
+    <div
+      class="user-header"
+      [style.background-image]="'url('+data.avatar_url+')'"
+    ></div>
+    <mat-card-header class="card-header">
+      <mat-card-title>{{ data.name }}</mat-card-title>
+      <mat-card-subtitle
+        >{{ data.bio }} (<a target="blank" href="{{ data.html_url }}">{{
+          data.login
+        }}</a
+        >)</mat-card-subtitle
+      >
+    </mat-card-header>
+    <mat-card-content class="card-content">
+      <div class="items">
+        <div class="item">
+          <mat-icon aria-hidden="false" aria-label="Example home icon"
+            >room</mat-icon
+          >
+          <span class="text"> {{ data.location }}</span>
+        </div>
+        <div class="item">
+          <mat-icon aria-hidden="false" aria-label="Example home icon"
+            >public</mat-icon
+          >
+          <a href="{{ data.blog }}" class="text"> {{ data.blog }}</a>
+        </div>
+        <div class="item">
+          <mat-icon
+            matTooltip="Info about the action"
+            aria-hidden="false"
+            aria-label="Example home icon"
+            >business</mat-icon
+          >
+          <span class="text">
+            {{ data.company }}
+          </span>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="card-actions">
+      <mat-tab-group mat-align-tabs="center">
+        <mat-tab label="({{ data.public_repos }}) Repos">
+          <mat-list>
+            <mat-list-item *ngFor="let repo of repos">
+              <h3 matLine>{{ repo.name }}</h3>
+              <p matLine>
+                <span> {{ repo.description }} </span>
+              </p>
+              <p matLine>
+                <button mat-button disabled>
+                  ({{ repo.forks_count }}) Forks
+                </button>
+                <button mat-button disabled>
+                  ({{ repo.open_issues_count }}) Issues
+                </button>
+              </p>
+              <button mat-icon-button (click)="showInfo(link)">
+                <mat-icon>info</mat-icon>
+              </button>
+            </mat-list-item>
+          </mat-list>
+        </mat-tab>
+        <mat-tab label="({{ data.followers }}) Followers">
+          <mat-list>
+            <mat-list-item *ngFor="let follower of followers">
+              <img matListAvatar src="{{ follower.avatar_url }}" alt="..." />
+              <h3 matLine>{{ follower.login }}</h3>
+              <button mat-icon-button routerLink="/users/{{ follower.login }}">
+                <mat-icon>face</mat-icon>
+              </button>
+            </mat-list-item>
+          </mat-list>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-actions>
+  </mat-card>
+</div>

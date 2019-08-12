@@ -1,0 +1,21 @@
+.users-container {
+  margin: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-self: center;
+  justify-content: flex-start;
+}
+.example-card {
+  width: 250px;
+  margin: 16px;
+  button {
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+}
