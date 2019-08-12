@@ -7,9 +7,8 @@
     .user-header {
       height: 150px;
       background-size: cover;
-      -webkit-filter: blur(5px);
       background-position: center center;
-      filter: blur(5px) grayscale(80%) opacity(0.9);
+      filter: grayscale(80%);
     }
     .card-header {
       padding: 16px 16px 0px 0px;

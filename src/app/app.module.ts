@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,7 +34,8 @@ import { FollowerListComponent } from './follower-list/follower-list.component';
     HttpClientModule,
     MatIconModule,
     MatTabsModule,
-    MatListModule
+    MatListModule,
+    MatInputModule
   ],
   providers: [
   ],
