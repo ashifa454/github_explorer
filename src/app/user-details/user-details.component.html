@@ -2,7 +2,7 @@
   <mat-card class="example-card">
     <div
       class="user-header"
-      [style.background-image]="'url('+data.avatar_url+')'"
+      [style.background-image]="'url(' + data.avatar_url + ')'"
     ></div>
     <mat-card-header class="card-header">
       <mat-card-title>{{ data.name }}</mat-card-title>
@@ -15,19 +15,19 @@
     </mat-card-header>
     <mat-card-content class="card-content">
       <div class="items">
-        <div class="item">
+        <div class="item" *ngIf="data.location">
           <mat-icon aria-hidden="false" aria-label="Example home icon"
             >room</mat-icon
           >
           <span class="text"> {{ data.location }}</span>
         </div>
-        <div class="item">
+        <div class="item" *ngIf="data.blog">
           <mat-icon aria-hidden="false" aria-label="Example home icon"
             >public</mat-icon
           >
           <a href="{{ data.blog }}" class="text"> {{ data.blog }}</a>
         </div>
-        <div class="item">
+        <div class="item" *ngIf="data.company">
           <mat-icon
             matTooltip="Info about the action"
             aria-hidden="false"
@@ -44,20 +44,20 @@
       <mat-tab-group mat-align-tabs="center">
         <mat-tab label="({{ data.public_repos }}) Repos">
           <mat-list>
-            <mat-list-item *ngFor="let repo of repos">
-              <h3 matLine>{{ repo.name }}</h3>
-              <p matLine>
+            <mat-list-item *ngFor="let repo of repos" class="repo-item">
+              <h3 matLine class="repo-name">{{ repo.name }}</h3>
+              <p matLine class="repo-description">
                 <span> {{ repo.description }} </span>
               </p>
               <p matLine>
-                <button mat-button disabled>
+                <button mat-button disabled style="padding-left:0px;">
                   ({{ repo.forks_count }}) Forks
                 </button>
                 <button mat-button disabled>
                   ({{ repo.open_issues_count }}) Issues
                 </button>
               </p>
-              <button mat-icon-button (click)="showInfo(link)">
+              <button mat-icon-button (click)="showInfo(repo.html_url)">
                 <mat-icon>info</mat-icon>
               </button>
             </mat-list-item>

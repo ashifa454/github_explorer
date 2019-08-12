@@ -1,6 +1,24 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" *ngIf="!isSearchActive">
   <span>Github Explorer</span>
   <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    (click)="toggleSearchbar()"
+    aria-label="Example icon-button with a heart icon"
+  >
+    <mat-icon>search</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-toolbar color="primary" *ngIf="isSearchActive">
+  <mat-icon>search</mat-icon>
+  <span class="example-spacer"></span>
+  <button
+    (click)="toggleSearchbar()"
+    mat-icon-button
+    aria-label="Example icon-button with a heart icon"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
 </mat-toolbar>
 <router-outlet></router-outlet>
