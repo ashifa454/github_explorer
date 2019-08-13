@@ -14,12 +14,11 @@ export class AppComponent {
   options = [];
   constructor(private userServices: UsersService, private router: Router) { }
   toggleSearchbar() {
+    this.searchQuery = "";
     this.isSearchActive = !this.isSearchActive;
   }
   handleSearchUser(f: NgForm) {
     console.log(f.form.value.searchQuery);
-    // e.preventDefault();
-    // alert("SUBMITTED");
   }
   handleInputChange(event: any) {
     this.searchQuery = event.target.value;
