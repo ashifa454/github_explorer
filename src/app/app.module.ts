@@ -16,6 +16,8 @@ import { HomeComponent } from './home/home.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { RepoListComponent } from './repo-list/repo-list.component';
 import { FollowerListComponent } from './follower-list/follower-list.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,9 @@ import { FollowerListComponent } from './follower-list/follower-list.component';
     MatIconModule,
     MatTabsModule,
     MatListModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    MatAutocompleteModule
   ],
   providers: [
   ],

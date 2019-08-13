@@ -26,7 +26,6 @@ export class UserDetailsComponent implements OnInit {
     })
   }
   showInfo(link) {
-
     window.open(link, '_blank');
   }
 }

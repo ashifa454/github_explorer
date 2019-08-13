@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <mat-toolbar color="primary" *ngIf="!isSearchActive">
-  <span>Github Explorer</span>
+  <span style="cursor:pointer" routerLink="/">Github Explorer</span>
   <span class="example-spacer"></span>
   <button
     mat-icon-button
@@ -12,6 +12,32 @@
 </mat-toolbar>
 <mat-toolbar color="primary" *ngIf="isSearchActive">
   <mat-icon>search</mat-icon>
+  <form
+    class="example-full-width"
+    #f="ngForm"
+    (ngSubmit)="handleSearchUser(f)"
+    novalidate
+  >
+    <mat-form-field class="example-full-width">
+      <input
+        type="search"
+        aria-label="Number"
+        name="searchQuery"
+        (keyup)="handleInputChange($event)"
+        [value]="searchQuery"
+        matInput
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        (optionSelected)="optionSelected($event)"
+      >
+        <mat-option *ngFor="let option of options" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
   <span class="example-spacer"></span>
   <button
     (click)="toggleSearchbar()"
